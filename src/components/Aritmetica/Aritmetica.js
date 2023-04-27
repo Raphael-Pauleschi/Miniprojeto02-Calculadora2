@@ -1,9 +1,9 @@
 import React from 'react'
-import styles from '../Style'
+import styles from '../KeyboardStyle'
 import {View, TouchableOpacity,Text} from 'react-native'
 
 export default Comp =>{
-    const buttons = ['SIN','COS','TG'];
+    const buttons = ['DEC', 'OCT', 'HEX', 'BIN'];
   return(
   <View style={styles.buttons}>
         {buttons.map((button) =>

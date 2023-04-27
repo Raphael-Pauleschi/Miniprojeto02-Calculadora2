@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../Style'
+import styles from '../KeyboardStyle'
 import {View, TouchableOpacity,Text} from 'react-native'
 
 export default Comp =>{
