@@ -1,45 +1,49 @@
-
-const CalculatorLogic = (currentNumber, trigonometricFunction, aritmetica) =>{
-    console.log(currentNumber)
-     const splitNumbers = currentNumber.split(' ');
-      let operator = ' ';
-      let actualNumber = 0;
-      let newNumber = parseFloat(splitNumbers[0].toString(10));
-      let index = 1;
-      while (index <= splitNumbers.length - 1) {
-        operator = splitNumbers[index];
-        actualNumber = parseFloat(splitNumbers[index + 1]);
+const CalculatorLogic = (currentNumber, trigonometricFunction, aritmetica) => {
+    console.log(currentNumber);
+    const splitNumbers = currentNumber.split(' ');
+    let operator = ' ';
+    let actualNumber = 0;
+    let newNumber = parseFloat(splitNumbers[0].toString(10));
+    let index = 1;
+    while (index <= splitNumbers.length - 1) {
+      operator = splitNumbers[index];
+      actualNumber = parseFloat(splitNumbers[index + 1]);
   
-        //Verifica se o número é um número
-        if (!isNaN(actualNumber)) {
-          // Faz ação referente tecla pressionada
-          switch (operator) {
-            case '+':
-              newNumber = newNumber + actualNumber;
-              break;
-            case '-':
-              newNumber = newNumber - actualNumber;
-              break;
-            case 'x':
-              newNumber = newNumber * actualNumber;
-              break;
-            case '/':
-              newNumber = newNumber / actualNumber;
-              break;
-          }
-  
-          index = index + 2;
-        } else {
-          return;
+      //Verifica se o número é um número
+      if (!isNaN(actualNumber)) {
+        // Faz ação referente tecla pressionada
+        switch (operator) {
+          case '+':
+            newNumber = newNumber + actualNumber;
+            break;
+          case '-':
+            newNumber = newNumber - actualNumber;
+            break;
+          case 'x':
+            newNumber = newNumber * actualNumber;
+            break;
+          case '/':
+            newNumber = newNumber / actualNumber;
+            break;
+          case '^':
+            newNumber = Math.pow(newNumber, actualNumber);
+            break;
+          case '%':
+            newNumber = (newNumber / 100) * actualNumber;
+            break;
         }
+  
+        index = index + 2;
+      } else {
+        return;
       }
+    }
   
-      newNumber = handleTrigonometric(newNumber);
+    newNumber = handleTrigonometric(newNumber);
   
-      return handleAritmetica(newNumber)
+    return handleAritmetica(newNumber);
   
-  
-   function handleTrigonometric(numberReceive) {
+    function handleTrigonometric(numberReceive) {
       switch (trigonometricFunction) {
         case 'SIN':
           return (numberReceive = Math.sin(numberReceive));
@@ -52,7 +56,7 @@ const CalculatorLogic = (currentNumber, trigonometricFunction, aritmetica) =>{
       }
     }
   
-   function handleAritmetica(numberReceive) {
+    function handleAritmetica(numberReceive) {
       switch (aritmetica) {
         case 'DEC':
           return numberReceive.toString();
@@ -64,6 +68,7 @@ const CalculatorLogic = (currentNumber, trigonometricFunction, aritmetica) =>{
           return numberReceive.toString(16);
       }
     }
-  }
+  };
   
-  export default (CalculatorLogic);
+  export default CalculatorLogic;
+  
