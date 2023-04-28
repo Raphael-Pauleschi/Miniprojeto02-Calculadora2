@@ -10,7 +10,7 @@ export default StyleSheet.create ({
     alignItems: 'center',
     justifyContent: 'center',
     minWidth: 90,
-    minHeight: 70,
+    minHeight: 60,
     flex: 2,
   },
   buttonOther: {
@@ -18,7 +18,7 @@ export default StyleSheet.create ({
     alignItems: 'center',
     justifyContent: 'center',
     minWidth: 90,
-    minHeight: 60,
+    minHeight: 50,
     flex: 2,
   },
   textButton: {
